@@ -216,8 +216,8 @@
 <!-- HERO -->
 <header class="hero">
   <div class="wrap">
-    <h1>Kubernetes cost optimization — <span class="accent">implemented</span>, not just advised.</h1>
-    <p class="sub">I find where your EKS spend is leaking — compute, observability, egress — and implement the fixes. Free infrastructure audit. No commitment.</p>
+    <h1>Cut your Kubernetes AWS bill — without pulling your <span class="accent">engineers</span> off the roadmap.</h1>
+    <p class="sub">Stop paying for idle compute. Stop burning sprint cycles on infrastructure toil. I find the waste, implement the fixes, and hand you the Terraform — so your team stays focused on shipping product. Free audit. No commitment.</p>
     <div class="cta-row">
       <a href="#audit" class="btn btn-primary">Get My Free Audit</a>
       <a href="https://calendly.com/hubert-k8scostops/30min" data-calendly class="btn btn-ghost" target="_blank" rel="noopener">Book a 15-min Call</a>
@@ -225,6 +225,16 @@
     <p class="micro">For <b>Series B–D SaaS teams</b> running Kubernetes on AWS.</p>
   </div>
 </header>
+
+<!-- ENGINEER CALLOUT -->
+<section style="padding:40px 0;background:var(--bg-2)">
+  <div class="wrap">
+    <div class="reveal" style="border-left:3px solid var(--accent);padding-left:24px;max-width:760px">
+      <p style="font-size:19px;font-weight:600;color:var(--text);font-family:var(--mono)">Your engineers could do this — if cost optimization were their full-time job.</p>
+      <p style="color:var(--muted);margin-top:10px;font-size:16px">It isn't. They're shipping product, which is exactly where their focus belongs. I step in as the specialist so your team doesn't have to context-switch.</p>
+    </div>
+  </div>
+</section>
 
 <!-- PROBLEM -->
 <section id="problem">
@@ -240,6 +250,7 @@
         <h3>Over-provisioned compute</h3>
         <p>Industry surveys consistently put EKS clusters well below 50% utilization — while you pay for 100%. Without Karpenter and proper autoscaling, mid-scale deployments carry idle capacity that adds up fast.</p>
         <span class="range">Often $10–40K/mo at scale</span>
+        <p style="margin-top:10px;font-size:13px;color:var(--muted)">$20K/mo saved = a senior engineer added to your payroll.</p>
       </div>
       <div class="card reveal">
         <div class="ico">LOG</div>
@@ -313,6 +324,7 @@
         <div class="n">3</div>
         <h3>I implement</h3>
         <p>If the numbers justify it, I implement the fixes in coordination with your team — Karpenter, log-pipeline cleanup, topology routing. Terraform and YAML, not PowerPoint. Industry benchmarks put 20–35% savings within reach across the areas I cover; your audit shows what's realistic for your environment.</p>
+        <p style="margin-top:14px;font-size:14px;font-weight:600;color:var(--accent);font-family:var(--mono)">Zero impact on uptime or performance buffers — we remove the waste, not your safety margins.</p>
       </div>
     </div>
   </div>
