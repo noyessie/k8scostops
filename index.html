@@ -3,20 +3,105 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>K8s Cost Ops | Kubernetes Cost Optimization for EKS</title>
-<meta name="description" content="Specialized Kubernetes cost optimization for Series B–D SaaS teams on AWS/EKS. Free infrastructure audit. I implement the fixes — not just recommendations." />
+<title>Kubernetes Cost Optimization for EKS — Cut AWS Spend 20–40% | K8s Cost Ops</title>
+<meta name="description" content="Cut your EKS bill 20–40% without pulling engineers off product. K8s Cost Ops finds and implements Kubernetes cost fixes — compute over-provisioning, Datadog waste, cross-AZ transfer. Free 24-hour audit for Series B–D SaaS teams on AWS." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://k8scostops.com/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="K8s Cost Ops | Kubernetes Cost Optimization for EKS" />
-<meta property="og:description" content="I find where your EKS spend is leaking — and implement the fixes. Free infrastructure audit. No commitment." />
+<meta property="og:title" content="Kubernetes Cost Optimization for EKS — Cut AWS Spend 20–40% | K8s Cost Ops" />
+<meta property="og:description" content="Cut your EKS bill 20–40% without pulling engineers off product. Compute, Datadog, cross-AZ — found and fixed. Free 24-hour audit, no commitment." />
 <meta property="og:url" content="https://k8scostops.com/" />
 <meta property="og:site_name" content="K8s Cost Ops" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="K8s Cost Ops | Kubernetes Cost Optimization for EKS" />
-<meta name="twitter:description" content="I find where your EKS spend is leaking — and implement the fixes. Free infrastructure audit." />
+<meta name="twitter:title" content="Kubernetes Cost Optimization for EKS — Cut AWS Spend 20–40% | K8s Cost Ops" />
+<meta name="twitter:description" content="Cut your EKS bill 20–40% without pulling engineers off product. Free 24-hour audit — compute, Datadog, cross-AZ transfer." />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://k8scostops.com/#business",
+      "name": "K8s Cost Ops",
+      "url": "https://k8scostops.com",
+      "email": "hubert@k8scostops.com",
+      "description": "Specialized Kubernetes cost optimization for Series B–D SaaS teams on AWS/EKS. Finds and implements infrastructure cost fixes — compute over-provisioning, Datadog observability waste, and cross-AZ data transfer.",
+      "founder": {
+        "@type": "Person",
+        "name": "Hubert",
+        "jobTitle": "Kubernetes Cost Optimization Specialist"
+      },
+      "areaServed": "US",
+      "knowsAbout": ["Kubernetes","Amazon EKS","AWS Cost Optimization","Karpenter","VPA","Datadog","FinOps","Cloud Cost Management","Cross-AZ Routing","Spot Instances"]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://k8scostops.com/#audit",
+      "name": "Free EKS Infrastructure Cost Audit",
+      "provider": {"@id": "https://k8scostops.com/#business"},
+      "description": "A free 24-hour read-only audit of your EKS cluster covering compute utilization, observability spend, and network costs. Delivers a written findings report with monthly dollar values by category.",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"}
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How can I reduce my Kubernetes costs on AWS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The three highest-impact areas for EKS cost reduction are compute over-provisioning, observability waste, and cross-AZ data transfer. Right-sizing nodes and enabling Karpenter with Spot instances typically recovers 20–30% of compute spend. Filtering Datadog log pipelines to remove health-check noise recovers 30–50% of observability spend. Enabling topology-aware routing eliminates cross-AZ transfer fees that commonly run $10–30K/month at Series B–D scale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the typical AWS cost saving from Kubernetes optimization?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most Series B–D SaaS teams running EKS recover 20–40% of their total Kubernetes-related AWS spend through structured optimization. Compute savings typically run 20–30%, observability 30–50%, and network costs 20–50% of their respective line items — often $40–120K per year in combined recoverable spend."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Karpenter reduce Kubernetes AWS costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Karpenter is an open-source Kubernetes node provisioner that replaces Cluster Autoscaler. It reduces AWS costs by provisioning the exact instance type each workload needs directly from EC2, enabling Spot instance fallback, and bin-packing pods more efficiently. Teams switching from Cluster Autoscaler to Karpenter typically see 20–35% compute cost reductions — but right-sizing pod resource requests must come first or the gains are lost to poor instance selection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my Datadog bill so high for Kubernetes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High Datadog bills on Kubernetes are almost always caused by log pipeline waste: health-check logs, debug output, and high-cardinality spans that ship to Datadog at full price but generate zero actionable signal. Most teams waste 30–50% of their Datadog spend on data nobody queries. Filtering at the Vector or FluentBit layer before logs reach Datadog is the primary fix — typically cutting observability spend by $8–30K per month at mid-scale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is cross-AZ data transfer in Kubernetes and why does it cost so much?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cross-AZ data transfer occurs when Kubernetes routes traffic between pods in different availability zones. AWS charges $0.01 per GB in each direction. Without topology-aware routing, Kubernetes schedules pods wherever capacity exists and routes traffic accordingly — generating $10–30K per month in avoidable transfer fees in high-traffic clusters. Enabling topology-aware service routing (available since Kubernetes 1.21) eliminates most of this cost with a single annotation change."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a free Kubernetes cost audit include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A K8s Cost Ops free audit runs in 24 hours using read-only access only — a scoped IAM role with CloudWatch and Cost Explorer permissions, no write access, removable at any time. The audit covers compute utilization versus provisioned capacity, observability spend by service, and network cost patterns. You receive a written report showing waste by category with monthly dollar values. If no meaningful recoverable waste is found, you are told directly with no invoice or obligation."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <!-- Inline SVG favicon (no external file) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b1120'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='%2334d399' font-family='monospace' font-weight='700'%3EK%3C/text%3E%3C/svg%3E" />
@@ -179,6 +264,13 @@
   }
   .success .mono{color:var(--accent);display:block;margin-bottom:6px}
   .errmsg{display:none;color:#fca5a5;font-size:14px;margin-top:12px}
+
+  /* FAQ */
+  .faq-list{margin-top:44px;display:grid;gap:0;max-width:800px}
+  .faq-item{border-top:1px solid var(--border);padding:24px 0}
+  .faq-item:last-child{border-bottom:1px solid var(--border)}
+  .faq-item h3{font-size:17px;margin-bottom:10px;color:var(--text);font-family:var(--sans);font-weight:600}
+  .faq-item p{color:var(--muted);font-size:15px;max-width:720px}
 
   /* Footer */
   footer{border-top:1px solid var(--border);padding:42px 0;color:var(--muted);font-size:14px}
@@ -502,6 +594,42 @@
         <span class="chip">ArgoCD</span>
         <!-- Once earned, add the FOCP credential here, e.g.:
         <span class="chip">FinOps Certified Practitioner</span> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Common questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <h3>How can I reduce my Kubernetes costs on AWS?</h3>
+        <p>The three highest-impact areas are compute over-provisioning, observability waste, and cross-AZ data transfer. Right-sizing nodes and enabling Karpenter with Spot instances typically recovers 20–30% of compute spend. Filtering Datadog pipelines to remove health-check noise recovers 30–50% of observability spend. Enabling topology-aware routing eliminates cross-AZ transfer fees that commonly run $10–30K/month at Series B–D scale.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>How much can I realistically save by optimizing my EKS cluster?</h3>
+        <p>Most Series B–D SaaS teams recover 20–40% of their total Kubernetes-related AWS spend through structured optimization — often $40–120K per year combined across compute (20–30%), observability (30–50%), and network (20–50%). Your free audit shows the exact numbers for your environment before you commit to anything.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>How does Karpenter reduce AWS costs compared to Cluster Autoscaler?</h3>
+        <p>Karpenter provisions the exact instance type each workload needs directly from EC2, enables Spot instance fallback, and bin-packs pods more efficiently than Cluster Autoscaler. Teams switching typically see 20–35% compute cost reductions — but right-sizing pod resource requests must come first. Switching without a prior request/limit audit often leads to poor instance selection and higher costs initially.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>Why is my Datadog bill so high for Kubernetes?</h3>
+        <p>Almost always log pipeline waste: health-check logs, debug output, and high-cardinality spans that ship to Datadog at full price but generate zero actionable signal. Most teams waste 30–50% of their Datadog spend on data nobody queries. Filtering at the Vector or FluentBit layer before logs reach Datadog typically cuts observability spend by $8–30K per month at mid-scale.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>What is cross-AZ data transfer and why does it appear on my AWS bill?</h3>
+        <p>Cross-AZ transfer occurs when Kubernetes routes traffic between pods in different availability zones — AWS charges $0.01/GB each direction. Without topology-aware routing, Kubernetes sends traffic wherever capacity exists regardless of zone, generating $10–30K per month in avoidable fees at high-traffic scale. Enabling topology-aware service routing (available since Kubernetes 1.21) eliminates most of it with a single annotation change.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>What does the free audit actually include?</h3>
+        <p>A 24-hour read-only review using a scoped IAM role — CloudWatch and Cost Explorer access only, no write permissions, removable at any time. The audit covers compute utilization vs. provisioned capacity, observability spend by service, and network cost patterns. You receive a written report with waste by category and monthly dollar values. If no meaningful recoverable waste is found, you're told directly — no invoice, no obligation.</p>
       </div>
     </div>
   </div>
