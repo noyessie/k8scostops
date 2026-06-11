@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.2" baseProfile="tiny-ps"
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 200 200" width="200" height="200">
+  <title>K8s Cost Ops</title>
+
+  <!-- ── Solid background (BIMI required) ─────────────────────────── -->
+  <rect width="200" height="200" fill="#0b1120"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       OUTER BADGE RING
+       ═══════════════════════════════════════════════════════════════ -->
+  <circle cx="100" cy="100" r="93"
+          fill="none" stroke="#34d399" stroke-width="3"/>
+
+  <!-- ── 12 Adinkra diamond marks in the border ring (every 30°) ───
+       Diamond border = Adinkra seal/stamp language (West Africa)
+       Each diamond sits at r=83, between the two rings
+       ─────────────────────────────────────────────────────────────── -->
+  <!-- 0°  --> <polygon points="183,95 188,100 183,105 178,100"         fill="#34d399"/>
+  <!-- 30° --> <polygon points="171.9,53.5 176.9,58.5 171.9,63.5 166.9,58.5" fill="#34d399"/>
+  <!-- 60° --> <polygon points="141.5,23.1 146.5,28.1 141.5,33.1 136.5,28.1" fill="#34d399"/>
+  <!-- 90° --> <polygon points="100,12 105,17 100,22 95,17"             fill="#34d399"/>
+  <!--120° --> <polygon points="58.5,23.1 63.5,28.1 58.5,33.1 53.5,28.1"  fill="#34d399"/>
+  <!--150° --> <polygon points="28.1,53.5 33.1,58.5 28.1,63.5 23.1,58.5"  fill="#34d399"/>
+  <!--180° --> <polygon points="17,95 22,100 17,105 12,100"              fill="#34d399"/>
+  <!--210° --> <polygon points="28.1,136.5 33.1,141.5 28.1,146.5 23.1,141.5" fill="#34d399"/>
+  <!--240° --> <polygon points="58.5,166.9 63.5,171.9 58.5,176.9 53.5,171.9" fill="#34d399"/>
+  <!--270° --> <polygon points="100,178 105,183 100,188 95,183"          fill="#34d399"/>
+  <!--300° --> <polygon points="141.5,166.9 146.5,171.9 141.5,176.9 136.5,171.9" fill="#34d399"/>
+  <!--330° --> <polygon points="171.9,136.5 176.9,141.5 171.9,146.5 166.9,141.5" fill="#34d399"/>
+
+  <!-- ── Inner ring (frames the central cost graphic) ─────────────── -->
+  <circle cx="100" cy="100" r="74"
+          fill="none" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.55"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CENTRAL GRAPHIC  — four descending bars, one baseline
+       Bars = spend at 4 points in time (left = before, right = after)
+       Heights: 88 → 65 → 43 → 22 (cost falling ~25% each phase)
+       All bars share baseline y=150
+       ═══════════════════════════════════════════════════════════════ -->
+  <rect x="61"  y="62"  width="16" height="88" fill="#34d399"/>
+  <rect x="82"  y="85"  width="16" height="65" fill="#34d399"/>
+  <rect x="103" y="107" width="16" height="43" fill="#34d399"/>
+  <rect x="124" y="128" width="16" height="22" fill="#34d399"/>
+
+  <!-- ── Diagonal cost-reduction arrow ────────────────────────────
+       Runs upper-left → lower-right through the bars.
+       Dark navy outline painted first so the green core pops off
+       the green bars (creates a distinct "incision" through the data).
+       ─────────────────────────────────────────────────────────────── -->
+  <!-- Shadow/outline pass -->
+  <line x1="67" y1="64" x2="138" y2="138"
+        stroke="#0b1120" stroke-width="11" stroke-linecap="round"/>
+  <!-- Green core -->
+  <line x1="67" y1="64" x2="138" y2="138"
+        stroke="#34d399" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Arrowhead — tip at (148,150), base perpendicular to ~45° slope -->
+  <polygon points="148,150 143,132 130,144"
+           fill="#34d399" stroke="#0b1120" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       BAR-TOP NODE CAPS
+       Small ring marks at the top of each bar = Kubernetes pod nodes
+       Drawn last so they sit above the arrow line
+       ═══════════════════════════════════════════════════════════════ -->
+  <circle cx="69"  cy="62"  r="5.5" fill="#0b1120" stroke="#34d399" stroke-width="2.5"/>
+  <circle cx="90"  cy="85"  r="5.5" fill="#0b1120" stroke="#34d399" stroke-width="2.5"/>
+  <circle cx="111" cy="107" r="5.5" fill="#0b1120" stroke="#34d399" stroke-width="2.5"/>
+  <circle cx="132" cy="128" r="5.5" fill="#0b1120" stroke="#34d399" stroke-width="2.5"/>
+
+</svg>
